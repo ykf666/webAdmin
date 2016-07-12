@@ -50,7 +50,7 @@
 	</servlet-mapping>
 	
 	<!-- Shiro Security filter -->
-    <filter>
+<!--     <filter>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
@@ -59,7 +59,7 @@
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
+    </filter-mapping> -->
     
     <filter>
         <filter-name>encodingFilter</filter-name>
