@@ -198,7 +198,7 @@
 			<!-- 开发环境:默认 -->
 			<id>dev</id>
 			<properties>
-				<db.url><![CDATA[jdbc:mysql://10.201.0.90:3306/epg?useUnicode=true&amp;characterEncoding=utf-8]]></db.url>
+				<db.url><![CDATA[jdbc:mysql://10.60.1.248:3306/webplayer?useUnicode=true&amp;characterEncoding=utf-8]]></db.url>
 				<db.username>epg</db.username>
 				<db.password>epg</db.password>
 			</properties>

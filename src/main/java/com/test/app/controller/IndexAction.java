@@ -7,19 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.test.app.model.ProgramExt;
-import com.test.app.service.ProgramExtService;
+import com.test.app.model.Video;
+import com.test.app.service.VideoService;
 
 @Controller("/")
 public class IndexAction {
 	
 	@Autowired
-	private ProgramExtService programExtService;
+	private VideoService videoService;
 	
-	@RequestMapping
+	@RequestMapping("")
 	public String index(Model model){
-		List<ProgramExt> list = programExtService.findProgramExt(0, 10);
-		model.addAttribute("programList", list);
+		List<Video> list = videoService.findVideos(0, 10);
+		model.addAttribute("videoList", list);
 		return "index";
 	}
 }
