@@ -148,7 +148,7 @@
   </dependencies>
   
   <build>
-    <finalName>webPlayer</finalName>
+    <finalName>webAdmin</finalName>
    	<resources>
 		<resource>
 			<directory>src/main/resources</directory>
