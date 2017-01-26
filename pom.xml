@@ -219,7 +219,7 @@
 			<!-- 开发环境:默认 -->
 			<id>dev</id>
 			<properties>
-				<db.url><![CDATA[jdbc:mysql://10.60.1.248:3306/webadmin?useUnicode=true&amp;characterEncoding=utf-8]]></db.url>
+				<db.url><![CDATA[jdbc:mysql://localhost:3306/webadmin?useUnicode=true&amp;characterEncoding=utf-8]]></db.url>
 				<db.username>root</db.username>
 				<db.password>root123</db.password>
 			</properties>
