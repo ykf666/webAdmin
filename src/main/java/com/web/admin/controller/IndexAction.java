@@ -1,4 +1,4 @@
-package com.test.app.controller;
+package com.web.admin.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.test.app.model.Video;
-import com.test.app.service.VideoService;
+import com.web.admin.model.Video;
+import com.web.admin.service.VideoService;
 
 @Controller("/")
 public class IndexAction {

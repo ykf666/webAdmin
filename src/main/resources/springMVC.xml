@@ -31,7 +31,7 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
-	<context:component-scan base-package="com.test.app.controller" use-default-filters="false">
+	<context:component-scan base-package="com.web.admin.controller" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 			

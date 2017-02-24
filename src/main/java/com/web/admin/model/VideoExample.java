@@ -1,4 +1,4 @@
-package com.test.app.model;
+package com.web.admin.model;
 
 import java.util.ArrayList;
 import java.util.Date;

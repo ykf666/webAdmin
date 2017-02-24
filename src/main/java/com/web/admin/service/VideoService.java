@@ -1,13 +1,13 @@
-package com.test.app.service;
+package com.web.admin.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.test.app.dao.VideoMapper;
-import com.test.app.model.Video;
-import com.test.app.model.VideoExample;
+import com.web.admin.dao.VideoMapper;
+import com.web.admin.model.Video;
+import com.web.admin.model.VideoExample;
 
 @Service
 public class VideoService {

@@ -1,9 +1,10 @@
-package com.test.app.dao;
+package com.web.admin.dao;
 
-import com.test.app.model.Video;
-import com.test.app.model.VideoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.web.admin.model.Video;
+import com.web.admin.model.VideoExample;
 
 public interface VideoMapper {
     /**
