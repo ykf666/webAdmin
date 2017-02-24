@@ -1,25 +1,27 @@
 package com.web.admin.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.web.admin.model.Video;
-import com.web.admin.service.VideoService;
-
 @Controller("/")
 public class IndexAction {
-	
-	@Autowired
-	private VideoService videoService;
-	
-	@RequestMapping("")
-	public String index(Model model){
-		List<Video> list = videoService.findVideos(0, 10);
-		model.addAttribute("videoList", list);
-		return "index";
+
+	/**
+	 * <登陆页面>
+	 * 
+	 * @return
+	 * @author yankefei
+	 * @date 2017年2月24日 下午17:23:52
+	 */
+	@RequestMapping("login")
+	public String getLogin() {
+		// 防止访问此接口是无限无法跳转至索引页
+		if (SecurityUtils.getSubject().isAuthenticated()) {
+			return "index";
+		} else {
+			return "login/login";
+		}
 	}
 }

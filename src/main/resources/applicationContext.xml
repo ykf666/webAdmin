@@ -81,7 +81,7 @@
 		<property name="typeAliasesPackage" value="com.web.admin.model" />
 		<!-- 指定mybatis的配置文件信息 -->
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
-		<property name="mapperLocations" value="/mapper/**/*.xml" />
+		<property name="mapperLocations" value="classpath:com/web/admin/dao/mapper/**/*.xml" />
 	</bean>
 	
 	<!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
@@ -91,7 +91,7 @@
 	</bean>
 	
 	<!-- 加载shiro配置 -->
-<!-- 	<import resource="application-shiro.xml" /> -->
+	<import resource="application-shiro.xml" />
 	
 	<!-- 系统静态资源配置，开发时，值取自 properties，测试和生产时，值取自 pom.profiles -->
 <!-- 	<bean id="configs" class="java.util.HashMap">
