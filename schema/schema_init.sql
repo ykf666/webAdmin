@@ -10,10 +10,48 @@ Target Server Type    : MYSQL
 Target Server Version : 50630
 File Encoding         : 65001
 
-Date: 2017-02-24 16:44:00
+Date: 2017-02-24 22:56:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for sys_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permission`;
+CREATE TABLE `sys_permission` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL COMMENT '类型，0：页面；1：功能',
+  `parent_id` int(11) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `order_no` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统权限表';
+
+-- ----------------------------
+-- Records of sys_permission
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role` (
+  `id` int(11) NOT NULL,
+  `rolename` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `update_time` datetime NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统角色表';
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_user
