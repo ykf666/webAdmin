@@ -1,4 +1,4 @@
-package com.bestv.vr.cms.security;
+package com.web.admin.shiro;
 
 import java.util.Arrays;
 import java.util.Set;

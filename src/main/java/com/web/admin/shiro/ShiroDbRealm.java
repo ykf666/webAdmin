@@ -18,7 +18,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.web.admin.service.impl.UserServiceImpl;
+import com.web.admin.model.SysRole;
+import com.web.admin.model.SysUser;
+import com.web.admin.service.RoleService;
+import com.web.admin.service.UserService;
 
 @Component
 public class ShiroDbRealm extends AuthorizingRealm {
@@ -26,10 +29,10 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	private static final Logger logger = LoggerFactory.getLogger(ShiroDbRealm.class);
 
 	@Autowired
-	private UserServiceImpl userService;
+	private UserService userService;
 	
 	@Autowired
-	private RoleMapper roleMapper;
+	private RoleService roleService;
 	
 	/**
 	 * 认证回调函数,登录时调用
@@ -37,11 +40,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		User user = null;
+		SysUser user = null;
 		try {
 			user = userService.getUserByLoginName(token.getUsername());
 			if (user!=null) {
-				return new SimpleAuthenticationInfo(user.getName(), user.getPassword(), getName());
+				return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
 			}
 		} catch (Exception e) {
 			logger.error("query user info exception:{}", e);
@@ -55,15 +58,15 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		User user = (User) principals.getPrimaryPrincipal();
+		SysUser user = (SysUser) principals.getPrimaryPrincipal();
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-		Role role = null;
+		SysRole role = null;
 		try {
-			role = getRoleById(user.getRoleId());
+			role = roleService.getRoleById(user.getRoleId());
 			//基于Role的权限信息
 			info.addRole(role.getId().toString());
 			info.addRole(role.getCode());
-			info.addRole(role.getName());
+			info.addRole(role.getRoleName());
 			//基于Permission的权限信息
 			info.addStringPermissions(getPermissions(role.getId()));
 			
@@ -72,13 +75,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
 			logger.error(e.getMessage());
 		}
 		return null;
-	}
-	
-	/**
-	 * 根据角色id获取角色
-	 */
-	private Role getRoleById(Integer roleId) throws Exception{
-		return roleMapper.selectByPrimaryKey(roleId);
 	}
 	
 	/**

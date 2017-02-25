@@ -2,7 +2,6 @@ package com.web.admin.controller;
 
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller("/")
@@ -21,7 +20,7 @@ public class IndexAction {
 		if (SecurityUtils.getSubject().isAuthenticated()) {
 			return "index";
 		} else {
-			return "login/login";
+			return "login";
 		}
 	}
 }

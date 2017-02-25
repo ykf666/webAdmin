@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 10.60.1.248-mysql_5.6.30
-Source Server Version : 50630
-Source Host           : 10.60.1.248:3306
+Source Server         : localhost
+Source Server Version : 50711
+Source Host           : localhost:3306
 Source Database       : webadmin
 
 Target Server Type    : MYSQL
-Target Server Version : 50630
+Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-02-24 22:56:06
+Date: 2017-02-25 10:54:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,6 +27,7 @@ CREATE TABLE `sys_permission` (
   `path` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `order_no` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `update_time` datetime NOT NULL,
   `create_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -42,7 +43,8 @@ CREATE TABLE `sys_permission` (
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` int(11) NOT NULL,
-  `rolename` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `role_name` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `update_time` datetime NOT NULL,
   `create_time` datetime NOT NULL,
@@ -52,6 +54,7 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
+INSERT INTO `sys_role` VALUES ('1', 'admin', '管理员', '管理员角色', '2017-02-24 23:10:06', '2017-02-24 23:10:06');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -59,10 +62,11 @@ CREATE TABLE `sys_role` (
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `realname` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `real_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `role_id` int(11) NOT NULL,
   `last_login_time` datetime NOT NULL COMMENT '最后登陆时间',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
@@ -71,4 +75,4 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', null, 'admin', null, '2017-02-24 16:38:39', '2017-02-24 16:38:43');
+INSERT INTO `sys_user` VALUES ('1', 'admin', null, 'admin', null, '1', '2017-02-24 16:38:43', '2017-02-24 16:38:43');

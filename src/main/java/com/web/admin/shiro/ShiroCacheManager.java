@@ -1,4 +1,4 @@
-package com.bestv.vr.cms.security;
+package com.web.admin.shiro;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;

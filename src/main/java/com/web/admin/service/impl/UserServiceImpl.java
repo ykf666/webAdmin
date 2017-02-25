@@ -12,7 +12,7 @@ import com.web.admin.model.SysUser;
 import com.web.admin.model.SysUserExample;
 import com.web.admin.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService{
 	
 	private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -28,21 +28,23 @@ public class UserServiceImpl implements UserService{
 	 * @author yankefei
 	 * @date 2017年2月24日 下午17:40:25
 	 */
+	@Override
 	public SysUser getUserByLoginName(String loginName) {
 		try {
 			SysUserExample userExample = new SysUserExample();
 			SysUserExample.Criteria criteria = userExample.createCriteria();
-			criteria.andUsernameEqualTo(loginName);
+			criteria.andUserNameEqualTo(loginName);
 			List<SysUser> users = userMapper.selectByExample(userExample);
 			if ( users != null && users.size() > 0 ) {
 				return users.get(0);
 			}else {
 				logger.info("未查询到用户：{}", loginName);
+				return null;
 			}
 		} catch (Exception e) {
 			logger.error("根据用户名查询用户异常：{}", e);
+			throw new RuntimeException(e);
 		}
-		return null;
 	}
 	
 }
