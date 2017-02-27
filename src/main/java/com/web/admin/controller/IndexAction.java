@@ -28,7 +28,6 @@ public class IndexAction {
 	 */
 	@RequestMapping("login")
 	public String getLogin() {
-		System.out.println("login action ...");
 		// 防止访问此接口是无限无法跳转至索引页
 		if (SecurityUtils.getSubject().isAuthenticated()) {
 			return "index";
@@ -36,6 +35,5 @@ public class IndexAction {
 			return "login";
 		}
 	}
-	
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
@@ -43,7 +43,7 @@
 								placeholder="Password" required="" />
 						</div>
 						<div>
-							<input class="btn btn-default submit" name="submit" type="submit" value="Log in"></input>
+							<input class="btn btn-default submit" name="submit" type="submit" value="Log In"></input>
 							<a class="reset_pass" href="#">Lost your password?</a>
 						</div>
 
