@@ -40,8 +40,7 @@
 	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/vendors/" mapping="/vendors/**"></mvc:resources>
-	<mvc:resources location="/page/" mapping="/page/**"></mvc:resources>
-	
+		
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 		<!-- 设置为true以忽略对Accept Header的支持 -->
 		<property name="ignoreAcceptHeader" value="true" />
@@ -64,8 +63,8 @@
             <list>  
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
                     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>  
-                    <property name="prefix" value="/page/"></property>
-                    <property name="suffix" value=".html"></property>
+                    <property name="prefix" value="/pages/"></property>
+                    <property name="suffix" value=".jsp"></property>
                 </bean>
             </list>  
         </property>  

@@ -19,14 +19,15 @@
 				/images/** = anon
 				/js/** = anon
 				/vendors/** = anon
-				/page/login.html = anon
+				
+				/login/** = anon,authc
 				/logout		= logout
 				/**      = authc
 			</value>
 		</property>
 		<property name="filters">
 			<map>
-<!-- 				<entry key="authc" value-ref="captchaFormFilter" /> -->
+				<entry key="authc" value-ref="captchaFormFilter" />
 <!-- 				<entry key="roles" value-ref="rolesOrFilter" /> -->
 <!-- 				<entry key="perms" value-ref="uriPermsFilter" /> -->
 			</map>
