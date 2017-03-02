@@ -20,13 +20,13 @@ public class IndexAction {
 	}
 	
 	/**
-	 * <登陆页>
+	 * <登录页>
 	 * 
 	 * @return
 	 * @author yankefei
-	 * @date 2017年2月24日 下午3:23:52
+	 * @date 2017年2月24日 下午2:23:52
 	 */
-	@RequestMapping("login")
+	@RequestMapping(value="login/page")
 	public String getLogin() {
 		// 防止访问此接口是无限无法跳转至索引页
 		if (SecurityUtils.getSubject().isAuthenticated()) {
@@ -35,5 +35,15 @@ public class IndexAction {
 			return "login";
 		}
 	}
-
+	
+	/**
+	 * <>
+	 *
+	 * @author yankefei
+	 * @date 2017年3月2日 下午6:19:30
+	 */
+	@RequestMapping(value="login/check")
+	public void login() {
+		
+	}
 }
