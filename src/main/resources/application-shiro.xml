@@ -10,18 +10,20 @@
 	<!-- Shiro Filter -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/login/page"></property>
+		<property name="loginUrl" value="/pages/login.html"></property>
 		<property name="successUrl" value="/" />
-		<property name="unauthorizedUrl" value="/login/page" />
+		<property name="unauthorizedUrl" value="/pages/error.html" />
 		<property name="filterChainDefinitions">
 			<value>
 				/css/** = anon
 				/images/** = anon
 				/js/** = anon
 				/vendors/** = anon
+				/pages/error.html = anon
+				/pages/login.html = anon
 				
-				/login/** = anon
-				/logout		= logout
+				/login = anon
+				/logout	= logout
 				/**      = authc
 			</value>
 		</property>

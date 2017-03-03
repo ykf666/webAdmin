@@ -26,7 +26,7 @@ public class IndexAction {
 	 * @author yankefei
 	 * @date 2017年2月24日 下午2:23:52
 	 */
-	@RequestMapping(value="login/page")
+	@RequestMapping(value="login")
 	public String getLogin() {
 		// 防止访问此接口是无限无法跳转至索引页
 		if (SecurityUtils.getSubject().isAuthenticated()) {
@@ -36,14 +36,4 @@ public class IndexAction {
 		}
 	}
 	
-	/**
-	 * <>
-	 *
-	 * @author yankefei
-	 * @date 2017年3月2日 下午6:19:30
-	 */
-	@RequestMapping(value="login/check")
-	public void login() {
-		
-	}
 }
