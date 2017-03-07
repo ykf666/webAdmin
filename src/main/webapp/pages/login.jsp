@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +34,7 @@
 		<div class="login_wrapper">
 			<div class="animate form login_form">
 				<section class="login_content">
-					<form name="loginForm" action="/login" >
+					<form name="loginForm" action="login" method="post">
 						<h1>Login Form</h1>
 						<div>
 							<input name="username" type="text" class="form-control" placeholder="用户名"
@@ -43,8 +45,8 @@
 								placeholder="密码" required="" />
 						</div>
 						<div>
-							<button class="btn btn-default submit" name="submit" type="submit" >登陆</button>
-							<a class="reset_pass" href="#">Lost your password?</a>
+							<input class="btn btn-primary" type="submit" value="登 陆"></input>
+							<!-- <a class="reset_pass" href="#">Lost your password?</a> -->
 						</div>
 
 						<div class="clearfix"></div>
@@ -102,7 +104,7 @@
 								<h1>
 									<i class="fa fa-paw"></i> Gentelella Alela!
 								</h1>
-								<p>Â©2016 All Rights Reserved. Gentelella Alela! is a
+								<p>©2016 All Rights Reserved. Gentelella Alela! is a
 									Bootstrap 3 template. Privacy and Terms</p>
 							</div>
 						</div>
@@ -112,27 +114,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="../vendors/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript">
-/* 	function login() {
-		var user_name = $("user_name").val();
-		var pass_word = $("pass_word").val;
-		$.ajax({
-			type : "POST",
-			url : "${pageContext.request.contextPath}/login/check",
-			dataType : 'text',
-			success : function(data) {
-				if ("0" != data) {
-					alert(data);
-					window.location.href = "${pageContext.request.contextPath}/index";
-				} else {
-					loginError();
-				}
-			},
-			error : function() {
-				alert("异常");
-			}
-		});
-	} */
-</script>
+<!-- <script type="text/javascript" src="../vendors/jquery/dist/jquery.min.js"></script> -->
 </html>
