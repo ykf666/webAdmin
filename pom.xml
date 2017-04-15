@@ -147,6 +147,13 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
 		</resources>
 		<plugins>
 			<!-- compiler -->
@@ -157,6 +164,7 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			
@@ -170,7 +178,7 @@
 <!-- 					<resourceBases>
       					<resourceBase>${project.basedir}/src/main/webapp</resourceBase>
       					<resourceBase>${project.basedir}/src/main/resources</resourceBase>
-    				</resourceBases> -->
+    				</resourceBases>-->
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 							<port>8081</port>
